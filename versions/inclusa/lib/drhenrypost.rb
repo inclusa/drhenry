@@ -1,3 +1,4 @@
+# coding: utf-8
 class DrHenryPost
 
   # Gets today's date
@@ -19,7 +20,7 @@ class DrHenryPost
 	nameArray = joinName.split(' ')
 	  nameArray.each do |s|
 	    string.push(s)
-	  end	
+	  end
     else
       ARGV.each do |a|
         string.push(a)
@@ -32,20 +33,20 @@ class DrHenryPost
 
   # Sets post title (into the file)
   def title(postName)
-    pn = postName.tr('-', ' ')
-    pn = pn.gsub(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/, '')
+    return postName.tr('-', ' ')
   end
 
   # Creates the file
   def create(date, filename, title)
     output = File.new("#{date}-#{filename}.md", "w")
     output.puts("---")
-    output.puts("layout: post" + " # note, post, report, capture")
-    output.puts("title: " + "#{title}")
-    output.puts("date: " + "#{date}")
-    output.puts("description: ")
-    output.puts("keywords: ")
-    output.puts("coments: ")
+    output.puts("layout: post #")
+    output.puts("title: " + "#{title}" + " # Generat automàticament")
+    output.puts("date: " + "#{date}" + " # Data")
+    output.puts("description: " + " # Argument")
+    output.puts("keywords: " + " # Paraules clau")
+    output.puts("coments: " +  " # Comentaris")
+    output.puts("---")
     output.close
   end
 
